@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.conf import settings
 
 
-class MyPlaylist(models.Model):
+class Playlist(models.Model):
     name = models.CharField(max_length=200)
     albums = models.ManyToManyField('Album')
     publish = models.BooleanField()
@@ -18,14 +18,14 @@ class MyPlaylist(models.Model):
         return self.name
 
 class Band(models.Model):
-    band_name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200)
     created_by = models.ForeignKey(
                                     settings.AUTH_USER_MODEL,
                                     related_name="bands",
                                     on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.band_name
+        return self.name
 
 
 class Album(models.Model):

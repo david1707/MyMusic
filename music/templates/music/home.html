@@ -3,8 +3,10 @@
 {% block content %}
     
     <div id="home_center">
-        <p class="">You have: X playlists</p>
-        <p class="">You have: X bands</p>
-        <p class="">You have: X albums</p>
+        <h2 class=" pt-1 pb-4">Your current stats</h2>
+        <p class="">You have: {{ playlists }} playlist{{ playlists|pluralize:"s" }}</p>
+        <p class="">You have: {{ bands }} band{{ bands|pluralize:"s" }}</p>
+        <p class="">You have: {{ albums }} album{{ albums|pluralize:"s" }}</p>
     </div>
+
 {% endblock content %}

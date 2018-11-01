@@ -1,0 +1,6 @@
+{% for playlist in object_list %}
+    <p>{{ playlist.name }}</p>
+    {% for album in playlist.albums.all %}
+        {{album.band_name}} - {{album.album_name}} <br>
+    {% endfor %}
+{% endfor %}
