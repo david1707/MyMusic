@@ -60,6 +60,10 @@ class Album(models.Model):
                                         choices=STATE_CONDITION_CHOICES,
                                         default=UNKNOWN)
     observations = models.TextField(blank=True, null=True)
+    created_by = models.ForeignKey(
+                                settings.AUTH_USER_MODEL,
+                                related_name="albums",
+                                on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.band_name} - {self.album_name}'

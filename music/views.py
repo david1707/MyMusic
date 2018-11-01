@@ -1,3 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
+from .models import Album, Band, MyPlaylist
+
+
+def home_page(request):
+    return render(request, 'music/home.html')
