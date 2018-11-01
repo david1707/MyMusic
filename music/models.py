@@ -3,9 +3,26 @@ from django.contrib.auth.models import User
 
 from django.conf import settings
 
+
+class MyPlaylist(models.Model):
+    name = models.CharField(max_length=200)
+    albums = models.ManyToManyField('Album')
+    publish = models.BooleanField()
+    publish_accepted = models.BooleanField()
+    created_by = models.ForeignKey(
+                                    settings.AUTH_USER_MODEL,
+                                    related_name="playlists",
+                                    on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+
 class Band(models.Model):
     band_name = models.CharField(max_length=200)
-    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    created_by = models.ForeignKey(
+                                    settings.AUTH_USER_MODEL,
+                                    related_name="bands",
+                                    on_delete=models.CASCADE)
 
     def __str__(self):
         return self.band_name
@@ -31,13 +48,17 @@ class Album(models.Model):
         (BAD, 'Bad'),
     )
 
-    band_name = models.ForeignKey('Band', on_delete=models.CASCADE)
+    band_name = models.ForeignKey('Band', related_name="albums", on_delete=models.CASCADE)
     album_name = models.CharField(max_length=200)
-    bought_year = models.IntegerField(blank=True, null=True)
+    published_year = models.IntegerField(blank=True, null=True)
     edition_year = models.IntegerField(blank=True, null=True)
+    bought_year = models.IntegerField(blank=True, null=True)
     price = models.FloatField(blank=True, null=True)
     country = models.CharField(blank=True, null=True, max_length=50)
-    state_condition = models.CharField(max_length=2, choices=STATE_CONDITION_CHOICES, default=UNKNOWN)
+    state_condition = models.CharField(
+                                        max_length=2,
+                                        choices=STATE_CONDITION_CHOICES,
+                                        default=UNKNOWN)
     observations = models.TextField(blank=True, null=True)
 
     def __str__(self):
