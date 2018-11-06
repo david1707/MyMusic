@@ -1,25 +1,25 @@
 {% load static %}
-
+{{ request.path }}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav col-md-12">
             <li class="nav-item active col-md-2 text-center" >
-                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link {% if request.path == '/' %} page-active {% endif %}" href="{% url 'home' %}">Home</a>
             </li>
             <li class="nav-item active col-md-2 text-center" >
-                <a class="nav-link" href="#">Playlists</a>
+                <a class="nav-link {% if request.path == '/playlist_list/' %} page-active {% endif %}" href="{% url 'playlist-list' %}">Playlists</a>
             </li>
             <li class="nav-item active col-md-2 text-center" >
-                <a class="nav-link" href="#">Bands</a>
+                <a class="nav-link {% if request.path == '/band_list/' %} page-active {% endif %}" href="#">Bands</a>
             </li>
             <li class="nav-item active col-md-2 text-center" >
-                <a class="nav-link" href="#">Albums</a>
+                <a class="nav-link {% if request.path == '/album_list/' %} page-active {% endif %}" href="{% url 'album-list' %}">Albums</a>
             </li>
             <li class="nav-item active col-md-2 text-right" >
                 <i class="nav-link" href="#">Logged as {{request.user}}</i>
             </li>
             <li class="nav-item active col-md-2 text-right" >
-                <a class="nav-link" href="#">Profile</a>
+                <a class="nav-link {% if request.path == '/user_profile/' %} page-active {% endif %}" href="#">Profile</a>
             </li>
         </ul>
     </div>

@@ -1,0 +1,9 @@
+## TODO list
+
+- Add modals to Create/Update elements
+- FBV to load dynamically ListViews after ModelCreate and ModelUpdate
+- Extend User class
+- Add Profile/Account creation
+- Add pagination
+- Create something 
+- Improve CSS

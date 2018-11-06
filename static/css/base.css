@@ -1,3 +1,9 @@
+/*
+********************************
+*********** HTML Tags **********
+********************************
+*/
+
 nav {
     height: 50px;
 }
@@ -11,6 +17,24 @@ footer {
     bottom: 0px;
 }
 
+body {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+/*
+********************************
+*****  Single page styles ******
+********************************
+*/
+
+/* 
+    Home
+*/
+
 #home_center {
     background-color: #f8f9fa;
     text-align: center;
@@ -21,10 +45,28 @@ footer {
     padding: 2em 0em;
 }
 
-body {
-    position: relative;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
+/*
+********************************
+*********** Elements ***********
+********************************
+*/
+
+/*
+    Table
+*/
+.activada {
+    background-color: red;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(97, 99, 102, 0.9);
+    color: white;
+}
+
+/*
+    Menu
+*/
+.page-active{
+    background-color: white;
+    color: #212529 !important;
 }
