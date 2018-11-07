@@ -1,0 +1,63 @@
+{% extends 'music/base.html' %}
+
+{% block content %}
+
+    <div class="container mt-4 playlist-detail">
+        <h1 class="text-center"> {{ object }} playlist</h1>
+        <hr>
+        <div class="row mb-3  text-center">
+            <h5 class="col-2">Name</h5>
+            <p class="col-10">{{ object.name }}</p>
+        </div>
+
+        <div class="row text-center mt-4">
+            <h5 class="col-2">Albums</h5>
+            <div class="col-10">
+            {% for album in object.albums.all %}
+                <p>{{ album }} </p>
+            {% endfor %}
+            </div>
+        </div>
+
+        <div class="row text-center mt-4">
+            <h5 class="col-2">Published</h5>
+            <div class="col-10">
+            {% if object.publish %}
+                <span>Yes</span>
+            {% else %}
+                <span>No</span>
+            {% endif %}
+            </div>
+        </div>
+
+        <div class="row text-center mt-4">
+            <h5 class="col-2">Publish Accepted</h5>
+            <div class="col-10">
+            {% if object.publish_accepted %}
+                <span>Yes</span>
+            {% else %}
+                <span>No</span>
+            {% endif %}
+            </div>
+        </div>
+
+
+    </div>
+        
+
+{% endblock content %}
+publish = models.BooleanField()
+publish_accepted = models.BooleanField()
+
+{% if playlist.publish %}
+<span>Yes</span>
+{% else %}
+<span>No</span>
+{% endif %}
+</td>
+<td>
+{% if playlist.publish_accepted %}
+<span>Yes</span>
+{% else %}
+<span>Pending</span>
+{% endif %}
