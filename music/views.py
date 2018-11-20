@@ -69,7 +69,7 @@ class PlaylistDetailView(DetailView):
 
 def delete_playlist(request, pk):
     playlist = get_object_or_404(Playlist, pk=pk)
-    # playlist.delete()
+    playlist.delete()
     data = {
         'status': 200,
         'msg': 'Playlist deleted successfully'
