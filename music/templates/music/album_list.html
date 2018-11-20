@@ -2,53 +2,53 @@
 
 {% block content %}
 
-        {% if object_list %}
-            <div class="container">
-                <table class="table table-hover mt-4 table-album text-center">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Album name</th>
-                        <th scope="col">Band name</th>
-                        <th scope="col">Published Year</th>
-                        <th scope="col">Edition Year</th>
-                        <th scope="col">Bought Year</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Country</th>
-                        <th scope="col">Condition</th>
-                    </tr>
-                </thead>
-                <tbody>
-                {% for album in object_list %}
-                    <tr>
-                        <th scope="row">{{ album.album_name }}</th>
-                        <td>{{ album.band_name }}</td>
-                        {% if album.published_year %}
-                            <td>{{ album.published_year }}</td>
-                        {% else %}
-                            <td>  -  </td>
-                        {% endif %}
-                        {% if album.edition_year %}
-                            <td>{{ album.edition_year }}</td>
-                        {% else %}
-                            <td>  -  </td>
-                        {% endif %}
-                        {% if album.bought_year %}
-                            <td>{{ album.bought_year }}</td>
-                        {% else %}
-                            <td>  -  </td>
-                        {% endif %}
-                        <td>{{ album.price }}</td>
-                        <td>{{ album.country }}</td>
-                        <td>{{ album.get_state_condition_display  }}</td>
-                    </tr>
-                
-                {% endfor %}
-                </tbody>
-                </table>
-                </div>
-                
-        {% else %}
-            <!-- TODO: Create album button (AJAX) -->
-        {% endif %}
+{% if object_list %}
+<div class="container">
+    <table class="table table-hover mt-4 table-album text-center">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Album name</th>
+                <th scope="col">Band name</th>
+                <th scope="col">Published Year</th>
+                <th scope="col">Edition Year</th>
+                <th scope="col">Bought Year</th>
+                <th scope="col">Price</th>
+                <th scope="col">Country</th>
+                <th scope="col">Condition</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for album in object_list %}
+            <tr>
+                <th scope="row">{{ album.album_name }}</th>
+                <td>{{ album.band_name }}</td>
+                {% if album.published_year %}
+                <td>{{ album.published_year }}</td>
+                {% else %}
+                <td> - </td>
+                {% endif %}
+                {% if album.edition_year %}
+                <td>{{ album.edition_year }}</td>
+                {% else %}
+                <td> - </td>
+                {% endif %}
+                {% if album.bought_year %}
+                <td>{{ album.bought_year }}</td>
+                {% else %}
+                <td> - </td>
+                {% endif %}
+                <td>{{ album.price }}</td>
+                <td>{{ album.country }}</td>
+                <td>{{ album.get_state_condition_display }}</td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% else %}
+<!-- TODO: Create album button (AJAX) -->
+{% endif %}
 
 {% endblock content %}

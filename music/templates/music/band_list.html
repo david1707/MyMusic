@@ -2,14 +2,29 @@
 
 {% block content %}
 
-    <div class="container">
-        {% for band in object_list %}
-            <p>{{ band.name }}</p>
-            <p>{{ band.created_by }}</p>
+{% if object_list %}
+<div class="container">
+    <table class="table table-hover mt-4 table-album text-center">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Band</th>
+                <th scope="col">Albums</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for band in object_list %}
+            <tr>
+                <th scope="row">{{ band.name }}</th>
+                <td>{{ band.albums.count }}</td>
+            </tr>
 
-        {% empty %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 
-        {% endfor %}
-    </div>
+{% else %}
+<!-- TODO: Create album button (AJAX) -->
+{% endif %}
 
-{% endblock %}
+{% endblock content %}

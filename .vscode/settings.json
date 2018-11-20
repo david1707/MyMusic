@@ -1,0 +1,7 @@
+{
+    "python.linting.enabled": false,
+    "gitlens.codeLens.recentChange.enabled": false,
+    "gitlens.codeLens.authors.enabled": false,
+    "gitlens.blame.line.enabled": false,
+    "python.pythonPath": "C:\\Users\\Void\\.virtualenvs\\MyMusic-cxYntXCP\\Scripts\\python.exe"
+}

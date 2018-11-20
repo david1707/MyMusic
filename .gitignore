@@ -1,6 +1,7 @@
 migrations/
 
 secret_keys.py
+Pîpfile
 
 .vscode/*
 !.vscode/settings.json
